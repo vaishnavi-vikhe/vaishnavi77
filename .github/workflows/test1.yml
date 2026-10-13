@@ -1,0 +1,25 @@
+
+
+name: Daily Cron Job at 8 AM
+
+on:
+  schedule:
+    - cron: '30 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  daily-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Print daily message
+        run: echo "Daily cron job is running at 8 AM IST!"
+
+      - name: Display date and time
+        run: date
+
+      - name: Show current directory
+        run: pwd
