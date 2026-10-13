@@ -1,0 +1,23 @@
+name: Cron Job Every 5 Minutes
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  cron-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Print message
+        run: echo "Cron job is running every 5 minutes!"
+
+      - name: Display date and time
+        run: date
+
+      - name: Show current directory
+        run: pwd
